@@ -527,7 +527,8 @@ public class Lab4_AndresCruz_StephanieMartinez {
     }
 
     static void CreacionJugadores(int contpat, int contti, char jugs) {
-
+        System.out.print("Ingrese la posición del equipo a la que le desea agregar los jugadores: ");
+        int pos = s.nextInt();
         if (contpat < 3) {
             if (jugs == 'p' || jugs == 'P') {
                 System.out.print("Ingrese el nombre del jugador: ");
@@ -586,7 +587,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
                     System.out.print("Ingrese la habilidad de regate del jugador: ");
                     regate = s.nextInt();
                 }
-                jugador.add(new Pateador(habilidad, fuerza, regate, estrellas, nombre, apodo, num, nombre_foot, nombre_basket, jug, mayor, nacimiento));
+                equipos.get(pos).getJugador().add(new Pateador(habilidad, fuerza, regate, estrellas, nombre, apodo, num, nombre_foot, nombre_basket, jug, mayor, nacimiento));
             }
         } else {
             System.out.println("Ya no se pueden agregar más pateadores.");
@@ -649,7 +650,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
                     System.out.print("Ingrese el ranfo del manejo del balón: ");
                     manejo = s.nextInt();
                 }
-                jugador.add(new Tirador(tiro3, tiro2, manejo, estrellas, nombre, apodo, num, nombre_foot, nombre_basket, jug, mayor, nacimiento));
+                equipos.get(pos).getJugador().add(new Tirador(tiro3, tiro2, manejo, estrellas, nombre, apodo, num, nombre_foot, nombre_basket, jug, mayor, nacimiento));
             } else {
                 System.out.println("El caracter que ha ingresado no es válido.");
             }
@@ -659,27 +660,29 @@ public class Lab4_AndresCruz_StephanieMartinez {
     }
 
     static void ModificacionJugadores() {
+        System.out.print("Ingrese el equipo al que desea modificar: ");
+        int pose = s.nextInt();
         System.out.print("Ingrese el jugador que desea modificar: ");
         int pos = s.nextInt();
-        if (jugador.get(pos) instanceof Tirador) {
+        if (equipos.get(pose).getJugador().get(pos) instanceof Tirador) {
             System.out.print("Ingrese el nombre del jugador: ");
             String nombre = s.next();
-            jugador.get(pos).setNombre(nombre);
+            equipos.get(pose).getJugador().get(pos).setNombre(nombre);
             System.out.print("Ingrese el apodo del jugador: ");
             String apodo = s.next();
-            jugador.get(pos).setApodo(apodo);
+            equipos.get(pose).getJugador().get(pos).setApodo(apodo);
             System.out.print("Ingrese el número de camisa que tiene el jugador: ");
             int num = s.nextInt();
-            jugador.get(pos).setNum_camisa(num);
+            equipos.get(pose).getJugador().get(pos).setNum_camisa(num);
             System.out.print("Ingrese el equipo de football favorito del jugador: ");
             String nombre_foot = s.next();
-            jugador.get(pos).setEquipo_foot(nombre_foot);
+            equipos.get(pose).getJugador().get(pos).setEquipo_foot(nombre_foot);
             System.out.print("Ingrese el equipo de basketball favorito del jugador: ");
             String nombre_basket = s.next();
-            jugador.get(pos).setEquipo_basket(nombre_basket);
+            equipos.get(pose).getJugador().get(pos).setEquipo_basket(nombre_basket);
             System.out.print("Ingrese el jugador favorito: ");
             String jug = s.next();
-            jugador.get(pos).setJugador_fav(jug);
+            equipos.get(pose).getJugador().get(pos).setJugador_fav(jug);
             System.out.print("Ingrese 1.- si el jugador es mayor de edad o ingrese 2.- si el jugador es menor de edad: ");
             int op = s.nextInt();
             boolean mayor = false;
@@ -694,10 +697,10 @@ public class Lab4_AndresCruz_StephanieMartinez {
                     System.out.println("El número que ha ingresado no es válido.");
                     break;
             }
-            jugador.get(pos).setMayor(mayor);
+            equipos.get(pose).getJugador().get(pos).setMayor(mayor);
             System.out.print("Ingrese el año de nacimiento: ");
             int nacimiento = s.nextInt();
-            jugador.get(pos).setNacimiento(nacimiento);
+            equipos.get(pose).getJugador().get(pos).setNacimiento(nacimiento);
             System.out.print("Ingrese el número de estrellas que tiene el jugador: ");
             int estrellas = s.nextInt();
             while (estrellas < 1 || estrellas > 5) {
@@ -729,22 +732,22 @@ public class Lab4_AndresCruz_StephanieMartinez {
         } else {
             System.out.print("Ingrese el nombre del jugador: ");
             String nombre = s.next();
-            jugador.get(pos).setNombre(nombre);
+            equipos.get(pose).getJugador().get(pos).setNombre(nombre);
             System.out.print("Ingrese el apodo del jugador: ");
             String apodo = s.next();
-            jugador.get(pos).setApodo(apodo);
+            equipos.get(pose).getJugador().get(pos).setApodo(apodo);
             System.out.print("Ingrese el número de camisa que tiene el jugador: ");
             int num = s.nextInt();
-            jugador.get(pos).setNum_camisa(num);
+            equipos.get(pose).getJugador().get(pos).setNum_camisa(num);
             System.out.print("Ingrese el equipo de football favorito del jugador: ");
             String nombre_foot = s.next();
-            jugador.get(pos).setEquipo_foot(nombre_foot);
+            equipos.get(pose).getJugador().get(pos).setEquipo_foot(nombre_foot);
             System.out.print("Ingrese el equipo de basketball favorito del jugador: ");
             String nombre_basket = s.next();
-            jugador.get(pos).setEquipo_basket(nombre_basket);
+            equipos.get(pose).getJugador().get(pos).setEquipo_basket(nombre_basket);
             System.out.print("Ingrese el jugador favorito: ");
             String jug = s.next();
-            jugador.get(pos).setJugador_fav(jug);
+            equipos.get(pose).getJugador().get(pos).setJugador_fav(jug);
             System.out.print("Ingrese 1.- si el jugador es mayor de edad o ingrese 2.- si el jugador es menor de edad: ");
             int op = s.nextInt();
             boolean mayor = false;
@@ -759,10 +762,10 @@ public class Lab4_AndresCruz_StephanieMartinez {
                     System.out.println("El número que ha ingresado no es válido.");
                     break;
             }
-            jugador.get(pos).setMayor(mayor);
+            equipos.get(pose).getJugador().get(pos).setMayor(mayor);
             System.out.print("Ingrese el año de nacimiento: ");
             int nacimiento = s.nextInt();
-            jugador.get(pos).setNacimiento(nacimiento);
+            equipos.get(pose).getJugador().get(pos).setNacimiento(nacimiento);
             System.out.print("Ingrese el número de estrellas que tiene el jugador: ");
             int estrellas = s.nextInt();
             while (estrellas < 1 || estrellas > 5) {
