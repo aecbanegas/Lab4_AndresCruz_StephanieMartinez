@@ -10,7 +10,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
     static ArrayList<Jugador> jugador = new ArrayList();
 
     public static void main(String[] args) {
-        int opcion_menu = 0;
+        int opcion_menu = 0, contpat = 0, contti = 0;
         while (opcion_menu != 4) {
             System.out.println("1.- Equipos\n2.- Jugadores\n3.- Juego\n4.- Salir");
             System.out.print("  Ingrese una opción: ");
@@ -48,7 +48,16 @@ public class Lab4_AndresCruz_StephanieMartinez {
                 int opcion_jugadores = s.nextInt();
                 if (opcion_jugadores == 1) {
                     System.out.println("--------------------------------");
-                    CreacionJugadores();
+                    System.out.print("Ingrese una 'p' si quiere crear un pateador o una 't' si quiere crear un tirador: ");
+                    char jugs = s.next().charAt(0);
+                    if (jugs == 'p' || jugs == 'P') {
+                        CreacionJugadores(contpat, contti, jugs);
+                        contpat++;
+                    } else if (jugs == 't' || jugs == 'T') {
+                        CreacionJugadores(contpat, contti, jugs);
+                        contti++;
+                    }
+
                 }
                 if (opcion_jugadores == 2) {
                     System.out.println("--------------------------------");
@@ -127,128 +136,135 @@ public class Lab4_AndresCruz_StephanieMartinez {
         equipos.get(pos).setColor(color);
     }
 
-    static void CreacionJugadores() {
-        System.out.print("Ingrese una 'p' si quiere crear un pateador o una 't' si quiere crear un tirador: ");
-        char jugs = s.next().charAt(0);
-        if (jugs == 'p' || jugs == 'P') {
-            System.out.print("Ingrese el nombre del jugador: ");
-            String nombre = s.next();
-            System.out.print("Ingrese el apodo del jugador: ");
-            String apodo = s.next();
-            System.out.print("Ingrese el número de camisa que tiene el jugador: ");
-            int num = s.nextInt();
-            System.out.print("Ingrese el equipo de football favorito del jugador: ");
-            String nombre_foot = s.next();
-            System.out.print("Ingrese el equipo de basketball favorito del jugador: ");
-            String nombre_basket = s.next();
-            System.out.print("Ingrese el jugador favorito: ");
-            String jug = s.next();
-            System.out.print("Ingrese 1.- si el jugador es mayor de edad o ingrese 2.- si el jugador es menor de edad: ");
-            int op = s.nextInt();
-            boolean mayor = false;
-            switch (op) {
-                case 1:
-                    mayor = true;
-                    break;
-                case 2:
-                    mayor = false;
-                    break;
-                default:
-                    System.out.println("El número que ha ingresado no es válido.");
-                    break;
-            }
-            System.out.print("Ingrese el año de nacimiento: ");
-            int nacimiento = s.nextInt();
-            System.out.print("Ingrese el número de estrellas que tiene el jugador: ");
-            int estrellas = s.nextInt();
-            while (estrellas < 1 || estrellas > 5) {
-                System.out.println("El número de estrellas que ha ingresado no es válido, por favor ingrese un número del 1 - 5.");
+    static void CreacionJugadores(int contpat, int contti, char jugs) {
+
+        if (contpat < 3) {
+            if (jugs == 'p' || jugs == 'P') {
+                System.out.print("Ingrese el nombre del jugador: ");
+                String nombre = s.next();
+                System.out.print("Ingrese el apodo del jugador: ");
+                String apodo = s.next();
+                System.out.print("Ingrese el número de camisa que tiene el jugador: ");
+                int num = s.nextInt();
+                System.out.print("Ingrese el equipo de football favorito del jugador: ");
+                String nombre_foot = s.next();
+                System.out.print("Ingrese el equipo de basketball favorito del jugador: ");
+                String nombre_basket = s.next();
+                System.out.print("Ingrese el jugador favorito: ");
+                String jug = s.next();
+                System.out.print("Ingrese 1.- si el jugador es mayor de edad o ingrese 2.- si el jugador es menor de edad: ");
+                int op = s.nextInt();
+                boolean mayor = false;
+                switch (op) {
+                    case 1:
+                        mayor = true;
+                        break;
+                    case 2:
+                        mayor = false;
+                        break;
+                    default:
+                        System.out.println("El número que ha ingresado no es válido.");
+                        break;
+                }
+                System.out.print("Ingrese el año de nacimiento: ");
+                int nacimiento = s.nextInt();
                 System.out.print("Ingrese el número de estrellas que tiene el jugador: ");
-                estrellas = s.nextInt();
-            }
-            System.out.print("Ingrese la habilidad: ");
-            int habilidad = s.nextInt();
-            while (habilidad < 1 || habilidad > 100) {
-                System.out.println("El número que ha ingresado no es válido");
+                int estrellas = s.nextInt();
+                while (estrellas < 1 || estrellas > 5) {
+                    System.out.println("El número de estrellas que ha ingresado no es válido, por favor ingrese un número del 1 - 5.");
+                    System.out.print("Ingrese el número de estrellas que tiene el jugador: ");
+                    estrellas = s.nextInt();
+                }
                 System.out.print("Ingrese la habilidad: ");
-                habilidad = s.nextInt();
-            }
-            System.out.print("Ingrese la fuerza del jugador: ");
-            int fuerza = s.nextInt();
-            while (fuerza < 1 || fuerza > 100) {
-                System.out.println("El número que ha ingresado no es válido");
+                int habilidad = s.nextInt();
+                while (habilidad < 1 || habilidad > 100) {
+                    System.out.println("El número que ha ingresado no es válido");
+                    System.out.print("Ingrese la habilidad: ");
+                    habilidad = s.nextInt();
+                }
                 System.out.print("Ingrese la fuerza del jugador: ");
-                fuerza = s.nextInt();
-            }
-            System.out.print("Ingrese la habilidad de regate del jugador: ");
-            int regate = s.nextInt();
-            while (regate < 1 || regate > 100) {
-                System.out.println("El número que ha ingresado no es válido");
+                int fuerza = s.nextInt();
+                while (fuerza < 1 || fuerza > 100) {
+                    System.out.println("El número que ha ingresado no es válido");
+                    System.out.print("Ingrese la fuerza del jugador: ");
+                    fuerza = s.nextInt();
+                }
                 System.out.print("Ingrese la habilidad de regate del jugador: ");
-                regate = s.nextInt();
+                int regate = s.nextInt();
+                while (regate < 1 || regate > 100) {
+                    System.out.println("El número que ha ingresado no es válido");
+                    System.out.print("Ingrese la habilidad de regate del jugador: ");
+                    regate = s.nextInt();
+                }
+                jugador.add(new Pateador(habilidad, fuerza, regate, estrellas, nombre, apodo, num, nombre_foot, nombre_basket, jug, mayor, nacimiento));
             }
-            jugador.add(new Pateador(habilidad, fuerza, regate, estrellas, nombre, apodo, num, nombre_foot, nombre_basket, jug, mayor, nacimiento));
-        }
-        if (jugs == 't' || jugs == 'T') {
-            System.out.print("Ingrese el nombre del jugador: ");
-            String nombre = s.next();
-            System.out.print("Ingrese el apodo del jugador: ");
-            String apodo = s.next();
-            System.out.print("Ingrese el número de camisa que tiene el jugador: ");
-            int num = s.nextInt();
-            System.out.print("Ingrese el equipo de football favorito del jugador: ");
-            String nombre_foot = s.next();
-            System.out.print("Ingrese el equipo de basketball favorito del jugador: ");
-            String nombre_basket = s.next();
-            System.out.print("Ingrese el jugador favorito: ");
-            String jug = s.next();
-            System.out.print("Ingrese 1.- si el jugador es mayor de edad o ingrese 2.- si el jugador es menor de edad: ");
-            int op = s.nextInt();
-            boolean mayor = false;
-            switch (op) {
-                case 1:
-                    mayor = true;
-                    break;
-                case 2:
-                    mayor = false;
-                    break;
-                default:
-                    System.out.println("El número que ha ingresado no es válido.");
-                    break;
-            }
-            System.out.print("Ingrese el año de nacimiento: ");
-            int nacimiento = s.nextInt();
-            System.out.print("Ingrese el número de estrellas que tiene el jugador: ");
-            int estrellas = s.nextInt();
-            while (estrellas < 1 || estrellas > 5) {
-                System.out.println("El número de estrellas que ha ingresado no es válido, por favor ingrese un número del 1 - 5.");
-                System.out.print("Ingrese el número de estrellas que tiene el jugador: ");
-                estrellas = s.nextInt();
-            }
-            System.out.print("Ingrese el rango del tiro 3 del jugador: ");
-            int tiro3 = s.nextInt();
-            while (tiro3 < 1 || tiro3 > 100) {
-                System.out.println("El número que ha ingresado no es válido");
-                System.out.print("Ingrese el rango del tiro 3 del jugador: ");
-                tiro3 = s.nextInt();
-            }
-            System.out.print("Ingrese el rando del tiro 2 del jugador: ");
-            int tiro2 = s.nextInt();
-            while (tiro2 < 1 || tiro2 > 100) {
-                System.out.println("El número que ha ingresado no es válido");
-                System.out.print("Ingrese el rando del tiro 2 del jugador: ");
-                tiro2 = s.nextInt();
-            }
-            System.out.print("Ingrese el rango del manejo del balón: ");
-            int manejo = s.nextInt();
-            while (manejo < 1 || manejo > 100) {
-                System.out.println("El número que ha ingresado no es válido");
-                System.out.print("Ingrese el ranfo del manejo del balón: ");
-                manejo = s.nextInt();
-            }
-            jugador.add(new Tirador(tiro3, tiro2, manejo, estrellas, nombre, apodo, num, nombre_foot, nombre_basket, jug, mayor, nacimiento));
         } else {
-            System.out.println("El caracter que ha ingresado no es válido.");
+            System.out.println("Ya no se pueden agregar más pateadores.");
+        }
+        if (contti < 2) {
+            if (jugs == 't' || jugs == 'T') {
+                System.out.print("Ingrese el nombre del jugador: ");
+                String nombre = s.next();
+                System.out.print("Ingrese el apodo del jugador: ");
+                String apodo = s.next();
+                System.out.print("Ingrese el número de camisa que tiene el jugador: ");
+                int num = s.nextInt();
+                System.out.print("Ingrese el equipo de football favorito del jugador: ");
+                String nombre_foot = s.next();
+                System.out.print("Ingrese el equipo de basketball favorito del jugador: ");
+                String nombre_basket = s.next();
+                System.out.print("Ingrese el jugador favorito: ");
+                String jug = s.next();
+                System.out.print("Ingrese 1.- si el jugador es mayor de edad o ingrese 2.- si el jugador es menor de edad: ");
+                int op = s.nextInt();
+                boolean mayor = false;
+                switch (op) {
+                    case 1:
+                        mayor = true;
+                        break;
+                    case 2:
+                        mayor = false;
+                        break;
+                    default:
+                        System.out.println("El número que ha ingresado no es válido.");
+                        break;
+                }
+                System.out.print("Ingrese el año de nacimiento: ");
+                int nacimiento = s.nextInt();
+                System.out.print("Ingrese el número de estrellas que tiene el jugador: ");
+                int estrellas = s.nextInt();
+                while (estrellas < 1 || estrellas > 5) {
+                    System.out.println("El número de estrellas que ha ingresado no es válido, por favor ingrese un número del 1 - 5.");
+                    System.out.print("Ingrese el número de estrellas que tiene el jugador: ");
+                    estrellas = s.nextInt();
+                }
+                System.out.print("Ingrese el rango del tiro 3 del jugador: ");
+                int tiro3 = s.nextInt();
+                while (tiro3 < 1 || tiro3 > 100) {
+                    System.out.println("El número que ha ingresado no es válido");
+                    System.out.print("Ingrese el rango del tiro 3 del jugador: ");
+                    tiro3 = s.nextInt();
+                }
+                System.out.print("Ingrese el rando del tiro 2 del jugador: ");
+                int tiro2 = s.nextInt();
+                while (tiro2 < 1 || tiro2 > 100) {
+                    System.out.println("El número que ha ingresado no es válido");
+                    System.out.print("Ingrese el rando del tiro 2 del jugador: ");
+                    tiro2 = s.nextInt();
+                }
+                System.out.print("Ingrese el rango del manejo del balón: ");
+                int manejo = s.nextInt();
+                while (manejo < 1 || manejo > 100) {
+                    System.out.println("El número que ha ingresado no es válido");
+                    System.out.print("Ingrese el ranfo del manejo del balón: ");
+                    manejo = s.nextInt();
+                }
+                jugador.add(new Tirador(tiro3, tiro2, manejo, estrellas, nombre, apodo, num, nombre_foot, nombre_basket, jug, mayor, nacimiento));
+            } else {
+                System.out.println("El caracter que ha ingresado no es válido.");
+            }
+        } else {
+            System.out.println("Ya no se pueden agregar más tiradores.");
         }
     }
 
