@@ -9,15 +9,8 @@ public class Juego {
     Random r = new Random();
     Scanner s = new Scanner(System.in);
     int Marc1 = 0, Marc2 = 0;
-    Equipos Equipo1;
-    Equipos Equipo2;
 
-    public Juego(Equipos Equipo1, Equipos Equipo2) {
-        this.Equipo1 = Equipo1;
-        this.Equipo2 = Equipo2;
-    }
-
-    public void Jugar() {
+    public void Jugar(Equipos Equipo1,Equipos Equipo2) {
         boolean flag = true;
         boolean flag2 = true;
         System.out.println("Bienvenido al Juego\nEl primer jugador usa al equipo: \nEl segundo jugador usa al equipo: ");
@@ -262,10 +255,14 @@ public class Juego {
             if (Marc1>=11) {
                 System.out.println("Ha ganado "+Equipo1.getNombre());
                 flag=false;
+                Marc1=0;
+                Marc2=0;
             }
             if (Marc2>=11) {
                 System.out.println("Ha ganado "+Equipo2.getNombre());
                 flag=false;
+                Marc1=0;
+                Marc2=0;
             }
         }
     }
