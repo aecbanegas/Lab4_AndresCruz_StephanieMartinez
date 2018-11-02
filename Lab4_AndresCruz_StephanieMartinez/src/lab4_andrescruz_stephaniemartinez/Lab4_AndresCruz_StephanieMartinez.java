@@ -133,7 +133,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
                     if (Equipo1.getJugador().get(posicion) instanceof Pateador) {
                         switch (option) {
                             case 1:
-                                double alazar = 1 + s.nextInt(100);
+                                int alazar = 1 + r.nextInt(100);
                                 double probabilidad = Equipo1.getJugador().get(posicion).Ataque(true);
                                 if (alazar <= probabilidad) {
                                     Marc1++;
@@ -184,7 +184,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
                                 } else {
                                     condicion = false;
                                 }
-                                double alazar = 1 + s.nextInt(100);
+                                int alazar = 1 + r.nextInt(100);
                                 double probabilidad = Equipo1.getJugador().get(posicion).Ataque(condicion);
                                 if (alazar <= probabilidad) {
                                     if (condicion) {
@@ -256,7 +256,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
                     if (Equipo2.getJugador().get(posicion) instanceof Pateador) {
                         switch (option) {
                             case 1:
-                                double alazar = 1 + s.nextInt(100);
+                                int alazar = 1 + r.nextInt(100);
                                 double probabilidad = Equipo2.getJugador().get(posicion).Ataque(true);
                                 if (alazar <= probabilidad) {
                                     Marc2++;
@@ -307,7 +307,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
                                 } else {
                                     condicion = false;
                                 }
-                                double alazar = 1 + s.nextInt(100);
+                                int alazar = 1 + r.nextInt(100);
                                 double probabilidad = Equipo2.getJugador().get(posicion).Ataque(condicion);
                                 if (alazar <= probabilidad) {
                                     if (condicion) {
