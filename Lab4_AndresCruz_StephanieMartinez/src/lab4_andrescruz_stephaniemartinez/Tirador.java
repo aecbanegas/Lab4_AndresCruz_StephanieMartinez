@@ -56,11 +56,11 @@ public class Tirador extends Jugador {
     }
 
     @Override
-    public double Ataque() {
-        if (tiro3 >= 1 && tiro3 <= 100) {
-            return (tiro3 + manejo) * 0.90 * num / 10;
+    public double Ataque(boolean cond) {
+        if (cond) {
+            return (tiro3 + manejo) * 0.90 * (num / 10);
         } else {
-            return (tiro2 + manejo) * 0.95 * num / 10;
+            return (tiro2 + manejo) * 0.95 * (num / 10);
         }
     }
 }

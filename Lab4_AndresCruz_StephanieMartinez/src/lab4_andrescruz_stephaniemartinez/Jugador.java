@@ -11,6 +11,7 @@ public abstract class Jugador {
     boolean mayor;
     int nacimiento;
     int num_estrellas;
+    
 
     public Jugador() {
     }
@@ -103,5 +104,5 @@ public abstract class Jugador {
     public String toString() {
         return "Jugador{" + "nombre=" + nombre + ", apodo=" + apodo + ", num_camisa=" + num_camisa + ", equipo_foot=" + equipo_foot + ", equipo_basket=" + equipo_basket + ", jugador_fav=" + jugador_fav + ", mayor=" + mayor + ", nacimiento=" + nacimiento + ", num_estrellas=" + num_estrellas + '}';
     }
-    public abstract double Ataque();
+    public abstract double Ataque(boolean cond);
 }

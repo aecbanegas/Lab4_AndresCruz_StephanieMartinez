@@ -1,8 +1,7 @@
-
 package lab4_andrescruz_stephaniemartinez;
 
+public class Pateador extends Jugador {
 
-public class Pateador extends Jugador{
     int habilidad;
     int fuerza;
     int habilidad_reg;
@@ -12,7 +11,7 @@ public class Pateador extends Jugador{
         super();
     }
 
-    public Pateador(int habilidad, int fuerza, int habalidad_reg,int num) {
+    public Pateador(int habilidad, int fuerza, int habalidad_reg, int num) {
         this.habilidad = habilidad;
         this.fuerza = fuerza;
         this.habilidad_reg = habalidad_reg;
@@ -55,9 +54,9 @@ public class Pateador extends Jugador{
     public String toString() {
         return "Pateador{" + "habilidad=" + habilidad + ", fuerza=" + fuerza + ", habilidad_reg=" + habilidad_reg + ", num=" + num + '}';
     }
-         
+
     @Override
-    public double Ataque(){
-        return (habilidad+fuerza+habilidad_reg)*0.65*num/10;
+    public double Ataque(boolean cond) {
+        return (habilidad + fuerza + habilidad_reg) * 0.65 * (num / 10);
     }
 }
