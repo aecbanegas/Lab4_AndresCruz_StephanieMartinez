@@ -43,12 +43,20 @@ public class Pateador extends Jugador{
         this.habilidad_reg = habalidad_reg;
     }
 
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
+
     @Override
     public String toString() {
-        return "Pateador{" + "habilidad=" + habilidad + ", fuerza=" + fuerza + ", habalidad_reg=" + habilidad_reg + '}';
+        return "Pateador{" + "habilidad=" + habilidad + ", fuerza=" + fuerza + ", habilidad_reg=" + habilidad_reg + ", num=" + num + '}';
     }
-    
-     
+         
+    @Override
     public double Ataque(){
         return (habilidad+fuerza+habilidad_reg)*0.65*num/10;
     }
