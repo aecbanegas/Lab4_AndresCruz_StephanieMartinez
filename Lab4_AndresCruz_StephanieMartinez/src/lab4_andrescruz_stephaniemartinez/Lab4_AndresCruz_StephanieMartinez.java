@@ -48,7 +48,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
             if (opcion_menu == 2) {
                 System.out.println("--------------------------------");
                 System.out.println("1.- Creación de jugadores\n2.- Eliminar jugadores\n3.- Modificar jugadores");
-                System.out.print("  Ingrese una ocpción: ");
+                System.out.print("  Ingrese una opción: ");
                 int opcion_jugadores = s.nextInt();
                 if (opcion_jugadores == 1) {
                     System.out.println("--------------------------------");
@@ -473,6 +473,9 @@ public class Lab4_AndresCruz_StephanieMartinez {
         }
         for (int i = 0; i < index.size(); i++) {
             System.out.println((i+1)+". "+temporal.get(index.get(i)).getNombre()+" -Goles:  "+ temporal.get(index.get(i)).getGoles());
+            if (i==4) {
+                break;
+            }
         }
     }
 
@@ -651,8 +654,6 @@ public class Lab4_AndresCruz_StephanieMartinez {
                     manejo = s.nextInt();
                 }
                 equipos.get(pos).getJugador().add(new Tirador(tiro3, tiro2, manejo, estrellas, nombre, apodo, num, nombre_foot, nombre_basket, jug, mayor, nacimiento));
-            } else {
-                System.out.println("El caracter que ha ingresado no es válido.");
             }
         } else {
             System.out.println("Ya no se pueden agregar más tiradores.");
