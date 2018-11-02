@@ -1,6 +1,7 @@
 package lab4_andrescruz_stephaniemartinez;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -50,6 +51,8 @@ public class Juego {
                                 double probabilidad = Equipo1.getJugador().get(posicion).Ataque(true);
                                 if (alazar <= probabilidad) {
                                     Marc1++;
+                                    int goles=Equipo1.getJugador().get(posicion).getGoles()+1;
+                                    Equipo1.getJugador().get(posicion).setGoles(goles);
                                     System.out.println("Gol!!!!");
                                     System.out.println(Equipo1.getNombre() + " " + Marc1 + " - " + Equipo2.getNombre() + " " + Marc2);
                                     cont = 0;
@@ -100,8 +103,12 @@ public class Juego {
                                 if (alazar <= probabilidad) {
                                     if (condicion) {
                                     Marc1+=3;    
+                                    int goles=Equipo1.getJugador().get(posicion).getGoles()+3;
+                                    Equipo1.getJugador().get(posicion).setGoles(goles);
                                     }else{
                                     Marc1+=2;
+                                    int goles=Equipo1.getJugador().get(posicion).getGoles()+2;
+                                    Equipo1.getJugador().get(posicion).setGoles(goles);
                                     }
                                     System.out.println("Gol!!!!");
                                     System.out.println(Equipo1.getNombre() + " " + Marc1 + " - " + Equipo2.getNombre() + " " + Marc2);
@@ -167,6 +174,8 @@ public class Juego {
                                 double probabilidad = Equipo2.getJugador().get(posicion).Ataque(true);
                                 if (alazar <= probabilidad) {
                                     Marc2++;
+                                    int goles=Equipo2.getJugador().get(posicion).getGoles()+1;
+                                    Equipo2.getJugador().get(posicion).setGoles(goles);
                                     System.out.println("Gol!!!!");
                                     System.out.println(Equipo1.getNombre() + " " + Marc1 + " - " + Equipo2.getNombre() + " " + Marc2);
                                     cont = 0;
@@ -217,8 +226,12 @@ public class Juego {
                                 if (alazar <= probabilidad) {
                                     if (condicion) {
                                     Marc2+=3;    
+                                    int goles=Equipo2.getJugador().get(posicion).getGoles()+3;
+                                    Equipo2.getJugador().get(posicion).setGoles(goles);
                                     }else{
                                     Marc2+=2;
+                                    int goles=Equipo2.getJugador().get(posicion).getGoles()+2;
+                                    Equipo2.getJugador().get(posicion).setGoles(goles);
                                     }
                                     System.out.println("Gol!!!!");
                                     System.out.println(Equipo1.getNombre() + " " + Marc1 + " - " + Equipo2.getNombre() + " " + Marc2);
@@ -265,6 +278,7 @@ public class Juego {
                 Marc2=0;
             }
         }
+        goleadores(Equipo1,Equipo2);
     }
 
     public boolean Numero(String temp) {
@@ -350,6 +364,33 @@ public class Juego {
             }
         } else {
             return true;
+        }
+    }
+    
+    public void goleadores(Equipos e1,Equipos e2){
+        ArrayList<Jugador>temporal= new ArrayList();
+        for (int i = 0; i < e1.getJugador().size(); i++) {
+            temporal.add(e1.getJugador().get(i));
+        }
+        for (int i = 0; i < e2.getJugador().size(); i++) {
+            temporal.add(e2.getJugador().get(i));
+        }
+        ArrayList<Integer>temp= new ArrayList();
+        for (int i = 0; i < temporal.size(); i++) {
+            temp.add(temporal.get(i).getGoles());
+        }
+        Collections.sort(temp);
+        ArrayList<Integer>index= new ArrayList();
+        for (int i = temp.size()-1; i > 0; i--) {
+            for (int j = 0; j < temporal.size(); j++) {
+                if (temporal.get(j).getGoles()==temp.get(i)) {
+                    index.add(j);
+                    break;
+                }
+            }
+        }
+        for (int i = 0; i < index.size(); i++) {
+            System.out.println((i+1)+". "+temporal.get(index.get(i)).getNombre()+" -Goles:  "+ temporal.get(index.get(i)).getGoles());
         }
     }
 }
