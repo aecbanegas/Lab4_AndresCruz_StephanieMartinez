@@ -11,12 +11,13 @@ public class Pateador extends Jugador {
         super();
     }
 
-    public Pateador(int habilidad, int fuerza, int habalidad_reg, int num) {
+    public Pateador(int habilidad, int fuerza, int habilidad_reg, int num, String nombre, String apodo, int num_camisa, String equipo_foot, String equipo_basket, String jugador_fav, boolean mayor, int nacimiento) {
+        super(nombre, apodo, num_camisa, equipo_foot, equipo_basket, jugador_fav, mayor, nacimiento);
         this.habilidad = habilidad;
         this.fuerza = fuerza;
-        this.habilidad_reg = habalidad_reg;
+        this.habilidad_reg = habilidad_reg;
         this.num = num;
-    }
+    }    
 
     public int getHabilidad() {
         return habilidad;

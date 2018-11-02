@@ -10,13 +10,12 @@ public abstract class Jugador {
     String jugador_fav;
     boolean mayor;
     int nacimiento;
-    int num_estrellas;
     
 
     public Jugador() {
     }
 
-    public Jugador(String nombre, String apodo, int num_camisa, String equipo_foot, String equipo_basket, String jugador_fav, boolean mayor, int nacimiento, int num_estrellas) {
+    public Jugador(String nombre, String apodo, int num_camisa, String equipo_foot, String equipo_basket, String jugador_fav, boolean mayor, int nacimiento) {
         this.nombre = nombre;
         this.apodo = apodo;
         this.num_camisa = num_camisa;
@@ -25,7 +24,6 @@ public abstract class Jugador {
         this.jugador_fav = jugador_fav;
         this.mayor = mayor;
         this.nacimiento = nacimiento;
-        this.num_estrellas = num_estrellas;
     }
 
     public String getNombre() {

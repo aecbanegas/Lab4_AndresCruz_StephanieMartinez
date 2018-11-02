@@ -11,7 +11,8 @@ public class Tirador extends Jugador {
         super();
     }
 
-    public Tirador(int tiro3, int tiro2, int manejo, int num) {
+    public Tirador(int tiro3, int tiro2, int manejo, int num, String nombre, String apodo, int num_camisa, String equipo_foot, String equipo_basket, String jugador_fav, boolean mayor, int nacimiento) {
+        super(nombre, apodo, num_camisa, equipo_foot, equipo_basket, jugador_fav, mayor, nacimiento);
         this.tiro3 = tiro3;
         this.tiro2 = tiro2;
         this.manejo = manejo;
