@@ -8,7 +8,7 @@ import java.util.Random;
 public class Lab4_AndresCruz_StephanieMartinez {
 
     static Scanner s = new Scanner(System.in);
-    static Random r=new Random();
+    static Random r = new Random();
     static int Marc1 = 0, Marc2 = 0;
     static ArrayList<Equipos> equipos = new ArrayList();
     static ArrayList<Jugador> jugador = new ArrayList();
@@ -54,6 +54,12 @@ public class Lab4_AndresCruz_StephanieMartinez {
                     System.out.println("--------------------------------");
                     System.out.print("Ingrese una 'p' si quiere crear un pateador o una 't' si quiere crear un tirador: ");
                     char jugs = s.next().charAt(0);
+                    System.out.print("Desea agregar un jugador en otro equipo [S/N]: ");
+                    char resp = s.next().charAt(0);
+                    if(resp == 'S' || resp == 's'){
+                        contti = 0;
+                        contpat = 0;
+                    }
                     if (jugs == 'p' || jugs == 'P') {
                         CreacionJugadores(contpat, contti, jugs);
                         contpat++;
@@ -61,7 +67,6 @@ public class Lab4_AndresCruz_StephanieMartinez {
                         CreacionJugadores(contpat, contti, jugs);
                         contti++;
                     }
-
                 }
                 if (opcion_jugadores == 2) {
                     System.out.println("--------------------------------");
@@ -87,13 +92,12 @@ public class Lab4_AndresCruz_StephanieMartinez {
                 int jugador1 = s.nextInt();
                 System.out.print("Jugador 2 ingrese el equipo con el que desea jugar: ");
                 int jugador2 = s.nextInt();
-                Jugar(equipos.get(jugador1),equipos.get(jugador2));
+                Jugar(equipos.get(jugador1), equipos.get(jugador2));
             }
         }
     }
-    
-    
-    static public void Jugar(Equipos Equipo1,Equipos Equipo2) {
+
+    static public void Jugar(Equipos Equipo1, Equipos Equipo2) {
         boolean flag = true;
         boolean flag2 = true;
         System.out.println("Bienvenido al Juego\nEl primer jugador usa al equipo: \nEl segundo jugador usa al equipo: ");
@@ -133,7 +137,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
                                 double probabilidad = Equipo1.getJugador().get(posicion).Ataque(true);
                                 if (alazar <= probabilidad) {
                                     Marc1++;
-                                    int goles=Equipo1.getJugador().get(posicion).getGoles()+1;
+                                    int goles = Equipo1.getJugador().get(posicion).getGoles() + 1;
                                     Equipo1.getJugador().get(posicion).setGoles(goles);
                                     System.out.println("Gol!!!!");
                                     System.out.println(Equipo1.getNombre() + " " + Marc1 + " - " + Equipo2.getNombre() + " " + Marc2);
@@ -184,13 +188,13 @@ public class Lab4_AndresCruz_StephanieMartinez {
                                 double probabilidad = Equipo1.getJugador().get(posicion).Ataque(condicion);
                                 if (alazar <= probabilidad) {
                                     if (condicion) {
-                                    Marc1+=3;    
-                                    int goles=Equipo1.getJugador().get(posicion).getGoles()+3;
-                                    Equipo1.getJugador().get(posicion).setGoles(goles);
-                                    }else{
-                                    Marc1+=2;
-                                    int goles=Equipo1.getJugador().get(posicion).getGoles()+2;
-                                    Equipo1.getJugador().get(posicion).setGoles(goles);
+                                        Marc1 += 3;
+                                        int goles = Equipo1.getJugador().get(posicion).getGoles() + 3;
+                                        Equipo1.getJugador().get(posicion).setGoles(goles);
+                                    } else {
+                                        Marc1 += 2;
+                                        int goles = Equipo1.getJugador().get(posicion).getGoles() + 2;
+                                        Equipo1.getJugador().get(posicion).setGoles(goles);
                                     }
                                     System.out.println("Gol!!!!");
                                     System.out.println(Equipo1.getNombre() + " " + Marc1 + " - " + Equipo2.getNombre() + " " + Marc2);
@@ -256,7 +260,7 @@ public class Lab4_AndresCruz_StephanieMartinez {
                                 double probabilidad = Equipo2.getJugador().get(posicion).Ataque(true);
                                 if (alazar <= probabilidad) {
                                     Marc2++;
-                                    int goles=Equipo2.getJugador().get(posicion).getGoles()+1;
+                                    int goles = Equipo2.getJugador().get(posicion).getGoles() + 1;
                                     Equipo2.getJugador().get(posicion).setGoles(goles);
                                     System.out.println("Gol!!!!");
                                     System.out.println(Equipo1.getNombre() + " " + Marc1 + " - " + Equipo2.getNombre() + " " + Marc2);
@@ -307,13 +311,13 @@ public class Lab4_AndresCruz_StephanieMartinez {
                                 double probabilidad = Equipo2.getJugador().get(posicion).Ataque(condicion);
                                 if (alazar <= probabilidad) {
                                     if (condicion) {
-                                    Marc2+=3;    
-                                    int goles=Equipo2.getJugador().get(posicion).getGoles()+3;
-                                    Equipo2.getJugador().get(posicion).setGoles(goles);
-                                    }else{
-                                    Marc2+=2;
-                                    int goles=Equipo2.getJugador().get(posicion).getGoles()+2;
-                                    Equipo2.getJugador().get(posicion).setGoles(goles);
+                                        Marc2 += 3;
+                                        int goles = Equipo2.getJugador().get(posicion).getGoles() + 3;
+                                        Equipo2.getJugador().get(posicion).setGoles(goles);
+                                    } else {
+                                        Marc2 += 2;
+                                        int goles = Equipo2.getJugador().get(posicion).getGoles() + 2;
+                                        Equipo2.getJugador().get(posicion).setGoles(goles);
                                     }
                                     System.out.println("Gol!!!!");
                                     System.out.println(Equipo1.getNombre() + " " + Marc1 + " - " + Equipo2.getNombre() + " " + Marc2);
@@ -347,20 +351,20 @@ public class Lab4_AndresCruz_StephanieMartinez {
                     }
                 }
             }
-            if (Marc1>=11) {
-                System.out.println("Ha ganado "+Equipo1.getNombre());
-                flag=false;
-                Marc1=0;
-                Marc2=0;
+            if (Marc1 >= 11) {
+                System.out.println("Ha ganado " + Equipo1.getNombre());
+                flag = false;
+                Marc1 = 0;
+                Marc2 = 0;
             }
-            if (Marc2>=11) {
-                System.out.println("Ha ganado "+Equipo2.getNombre());
-                flag=false;
-                Marc1=0;
-                Marc2=0;
+            if (Marc2 >= 11) {
+                System.out.println("Ha ganado " + Equipo2.getNombre());
+                flag = false;
+                Marc1 = 0;
+                Marc2 = 0;
             }
         }
-        goleadores(Equipo1,Equipo2);
+        goleadores(Equipo1, Equipo2);
     }
 
     static public boolean Numero(String temp) {
@@ -448,38 +452,37 @@ public class Lab4_AndresCruz_StephanieMartinez {
             return true;
         }
     }
-    
-    static public void goleadores(Equipos e1,Equipos e2){
-        ArrayList<Jugador>temporal= new ArrayList();
+
+    static public void goleadores(Equipos e1, Equipos e2) {
+        ArrayList<Jugador> temporal = new ArrayList();
         for (int i = 0; i < e1.getJugador().size(); i++) {
             temporal.add(e1.getJugador().get(i));
         }
         for (int i = 0; i < e2.getJugador().size(); i++) {
             temporal.add(e2.getJugador().get(i));
         }
-        ArrayList<Integer>temp= new ArrayList();
+        ArrayList<Integer> temp = new ArrayList();
         for (int i = 0; i < temporal.size(); i++) {
             temp.add(temporal.get(i).getGoles());
         }
         Collections.sort(temp);
-        ArrayList<Integer>index= new ArrayList();
-        for (int i = temp.size()-1; i > 0; i--) {
+        ArrayList<Integer> index = new ArrayList();
+        for (int i = temp.size() - 1; i > 0; i--) {
             for (int j = 0; j < temporal.size(); j++) {
-                if (temporal.get(j).getGoles()==temp.get(i)) {
+                if (temporal.get(j).getGoles() == temp.get(i)) {
                     index.add(j);
                     break;
                 }
             }
         }
         for (int i = 0; i < index.size(); i++) {
-            System.out.println((i+1)+". "+temporal.get(index.get(i)).getNombre()+" -Goles:  "+ temporal.get(index.get(i)).getGoles());
-            if (i==4) {
+            System.out.println((i + 1) + ". " + temporal.get(index.get(i)).getNombre() + " -Goles:  " + temporal.get(index.get(i)).getGoles());
+            if (i == 4) {
                 break;
             }
         }
     }
 
-    
     static void Creacion() {
         System.out.print("Ingrese el nombre del equipo: ");
         String nombre = s.next();
