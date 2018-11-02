@@ -10,7 +10,7 @@ public abstract class Jugador {
     String jugador_fav;
     boolean mayor;
     int nacimiento;
-    
+    int goles = 0;
 
     public Jugador() {
     }
@@ -90,17 +90,18 @@ public abstract class Jugador {
         this.nacimiento = nacimiento;
     }
 
-    public int getNum_estrellas() {
-        return num_estrellas;
+    public int getGoles() {
+        return goles;
     }
 
-    public void setNum_estrellas(int num_estrellas) {
-        this.num_estrellas = num_estrellas;
+    public void setGoles(int goles) {
+        this.goles = goles;
     }
+
 
     @Override
     public String toString() {
-        return "Jugador{" + "nombre=" + nombre + ", apodo=" + apodo + ", num_camisa=" + num_camisa + ", equipo_foot=" + equipo_foot + ", equipo_basket=" + equipo_basket + ", jugador_fav=" + jugador_fav + ", mayor=" + mayor + ", nacimiento=" + nacimiento + ", num_estrellas=" + num_estrellas + '}';
+        return "Jugador{" + "nombre=" + nombre + ", apodo=" + apodo + ", num_camisa=" + num_camisa + ", equipo_foot=" + equipo_foot + ", equipo_basket=" + equipo_basket + ", jugador_fav=" + jugador_fav + ", mayor=" + mayor + ", nacimiento=" + nacimiento + '}';
     }
     public abstract double Ataque(boolean cond);
 }
